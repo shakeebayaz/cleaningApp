@@ -12,7 +12,7 @@ import com.thinker.crystal.myapplication.R;
 /**
  * Created by techjini on 3/8/16.
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity  extends AppCompatActivity {
     private Toolbar mToolbar;
 
     @Override
