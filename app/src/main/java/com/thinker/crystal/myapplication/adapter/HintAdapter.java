@@ -9,9 +9,13 @@ import java.util.List;
  * Created by Shakeeb on 3/8/16.
  */
 public class HintAdapter extends ArrayAdapter<String> {
-
+    private int size;
+    public int size(){
+        return size;
+    }
     public HintAdapter(Context context, int theLayoutResID, List<String> list) {
         super(context, theLayoutResID, list);
+        size=list.size();
     }
 
     @Override

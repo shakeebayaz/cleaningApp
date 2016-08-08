@@ -1,11 +1,13 @@
 package com.thinker.crystal.myapplication.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.thinker.crystal.myapplication.R;
 import com.thinker.crystal.myapplication.activity.MainActivity;
@@ -19,11 +21,13 @@ import java.util.List;
  */
 public class CleaningCategoryAdapter extends RecyclerView.Adapter<CleaningCategoryAdapter.CleaningCategoryViewHolder> {
     private final List<CleaningCategory> mList;
+
     private Context mContext;
 
     public CleaningCategoryAdapter(Context context, List<CleaningCategory> list) {
         mContext = context;
         mList = list;
+
     }
 
     @Override
@@ -35,6 +39,7 @@ public class CleaningCategoryAdapter extends RecyclerView.Adapter<CleaningCatego
     @Override
     public void onBindViewHolder(CleaningCategoryViewHolder holder, int position) {
         holder.mBinding.setData(mList.get(position));
+
     }
 
     @Override
@@ -48,11 +53,24 @@ public class CleaningCategoryAdapter extends RecyclerView.Adapter<CleaningCatego
         public CleaningCategoryViewHolder(AdapterCleaningCategoryBinding binding) {
             super(binding.getRoot());
             mBinding = binding;
+            mBinding.setHandler(this);
+
         }
 
         @Override
         public void onClick(View v) {
-
+            if (!((MainActivity) mContext).isSpinnerSelected()) {
+                Toast.makeText(mContext, "Select Location First", Toast.LENGTH_LONG).show();
+                return;
+            }
+            if (mList.get(getLayoutPosition()).isChecked()) {
+                mList.get(getLayoutPosition()).setChecked(false);
+                mList.get(getLayoutPosition()).notifyChange();
+            } else {
+                mList.get(getLayoutPosition()).setChecked(true);
+                mList.get(getLayoutPosition()).notifyChange();
+            }
         }
     }
+
 }

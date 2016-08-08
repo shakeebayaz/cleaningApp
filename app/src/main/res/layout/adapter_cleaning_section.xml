@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="data"
+            type="com.thinker.crystal.myapplication.model.CleaningSelection" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:text="@{data.getTotalCount()>0?@string/empty +data.getTotalCount():@string/empty}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="@{data.getCleaningSectionName()}"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/rupee_symbol +data.getRate()}"
+                android:layout_marginRight="10dp"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_plus"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dp"
+                android:padding="5dp"
+                android:onClick="@{handler.onClick}"
+                app:srcCompat="@drawable/ic_plus"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/color_d2d2d2"
+            android:onClick="@{handler.onClick}"
+            android:elevation="2dp" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,10 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Active tab -->
+    <item android:state_focused="false" android:state_pressed="false" android:state_selected="true" app:srcCompat="@drawable/ic_plus" />
+    <!-- Inactive tab -->
+    <!-- Pressed tab -->
+    <item app:srcCompat="@drawable/ic_plus_pressed" android:state_pressed="true" />
+    <!-- Selected tab (using d-pad) -->
+
+</selector>
