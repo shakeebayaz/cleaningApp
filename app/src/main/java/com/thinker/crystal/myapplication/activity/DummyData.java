@@ -47,7 +47,7 @@ public class DummyData {
 
         for (int i = 0; i < 9; i++) {
             CleaningSelection obj = new CleaningSelection();
-            obj.setCleaningSectionName("Cleaning section " + i);
+            obj.setCleaningSectionName("Cleaning \n section " + i);
             obj.setRate(100 * i);
             list.add(obj);
         }

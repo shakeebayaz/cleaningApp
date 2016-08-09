@@ -10,6 +10,7 @@ import android.widget.ImageView;
 public class Constants {
 
     public static final int SPLASH_TIME = 2000;
+
     @BindingAdapter({"app:src"})
     public static void loadImageResource(ImageView view, String name) {
         try {
@@ -19,5 +20,9 @@ public class Constants {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public interface BundleKeys {
+        String DialogTitle = "com.thinker.crystal." + "dialogTitle";
     }
 }
